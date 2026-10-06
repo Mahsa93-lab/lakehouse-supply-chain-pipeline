@@ -1,0 +1,6 @@
+pandas>=2.2
+requests>=2.32
+# local tests / CI
+pytest>=8
+ruff>=0.6
+# pyspark is preinstalled on Databricks; CI installs it separately (needs Java)

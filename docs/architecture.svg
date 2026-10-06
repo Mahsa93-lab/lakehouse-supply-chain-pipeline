@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7D8EA3"/></marker>
+  </defs>
+  <rect width="1200" height="600" fill="#ffffff"/>
+  <text x="30" y="40" font-size="22" font-weight="700" fill="#1D2430">Lakehouse supply-chain pipeline · Databricks · PySpark · Delta Lake · Unity Catalog</text>
+  <text x="30" y="66" font-size="14" fill="#5B6574">Raw files and an external API → bronze → silver → gold, with data-quality history and a reconciliation gate against project 1</text>
+
+  <!-- sources -->
+  <g>
+    <rect x="30" y="100" width="210" height="96" rx="10" fill="none" stroke="#7D8EA3" stroke-width="1.5"/>
+    <text x="135" y="128" text-anchor="middle" font-size="15" font-weight="700" fill="#1D2430">Olist CSV files</text>
+    <text x="135" y="150" text-anchor="middle" font-size="12.5" fill="#5B6574">7 files · 99,441 orders</text>
+    <text x="135" y="170" text-anchor="middle" font-size="12.5" fill="#5B6574">UC volume /Volumes/…/raw</text>
+    <rect x="30" y="230" width="210" height="110" rx="10" fill="none" stroke="#7D8EA3" stroke-width="1.5"/>
+    <text x="135" y="258" text-anchor="middle" font-size="15" font-weight="700" fill="#1D2430">ECB Data Portal API</text>
+    <text x="135" y="280" text-anchor="middle" font-size="12.5" fill="#5B6574">daily BRL/EUR reference rates</text>
+    <text x="135" y="300" text-anchor="middle" font-size="12.5" fill="#5B6574">fallback: data/ecb_…csv</text>
+    <text x="135" y="320" text-anchor="middle" font-size="12.5" fill="#5B6574">(no internet in Free Edition)</text>
+  </g>
+
+  <!-- layers -->
+  <g>
+    <rect x="300" y="100" width="200" height="240" rx="10" fill="#F3E3D7" stroke="#C0632B" stroke-width="1.5"/>
+    <text x="400" y="130" text-anchor="middle" font-size="17" font-weight="700" fill="#1D2430">Bronze</text>
+    <text x="400" y="152" text-anchor="middle" font-size="12.5" fill="#1D2430">01_bronze</text>
+    <text x="400" y="186" text-anchor="middle" font-size="12.5" fill="#1D2430">8 Delta tables, all text</text>
+    <text x="400" y="206" text-anchor="middle" font-size="12.5" fill="#1D2430">+ _ingested_at, _source_file</text>
+    <text x="400" y="240" text-anchor="middle" font-size="12.5" fill="#1D2430">bronze_fx_rates:</text>
+    <text x="400" y="260" text-anchor="middle" font-size="12.5" fill="#1D2430">incremental MERGE</text>
+    <text x="400" y="280" text-anchor="middle" font-size="12.5" fill="#1D2430">(re-runs add nothing)</text>
+
+    <rect x="560" y="100" width="200" height="240" rx="10" fill="#E3E8EE" stroke="#7D8EA3" stroke-width="1.5"/>
+    <text x="660" y="130" text-anchor="middle" font-size="17" font-weight="700" fill="#1D2430">Silver</text>
+    <text x="660" y="152" text-anchor="middle" font-size="12.5" fill="#1D2430">02_silver · src/transforms.py</text>
+    <text x="660" y="186" text-anchor="middle" font-size="12.5" fill="#1D2430">typed with try_cast</text>
+    <text x="660" y="206" text-anchor="middle" font-size="12.5" fill="#1D2430">deduplicated, worst review</text>
+    <text x="660" y="240" text-anchor="middle" font-size="12.5" fill="#1D2430">EUR = BRL / ECB rate</text>
+    <text x="660" y="260" text-anchor="middle" font-size="12.5" fill="#1D2430">of the purchase day</text>
+    <text x="660" y="280" text-anchor="middle" font-size="12.5" fill="#1D2430">(weekends forward-filled)</text>
+
+    <rect x="820" y="100" width="200" height="240" rx="10" fill="#FBEFC7" stroke="#C99A06" stroke-width="1.5"/>
+    <text x="920" y="130" text-anchor="middle" font-size="17" font-weight="700" fill="#1D2430">Gold</text>
+    <text x="920" y="152" text-anchor="middle" font-size="12.5" fill="#1D2430">03_gold</text>
+    <text x="920" y="186" text-anchor="middle" font-size="12.5" fill="#1D2430">fact_orders (order grain)</text>
+    <text x="920" y="206" text-anchor="middle" font-size="12.5" fill="#1D2430">fact_order_items (item grain)</text>
+    <text x="920" y="240" text-anchor="middle" font-size="12.5" fill="#1D2430">weekly_kpis (101 weeks)</text>
+    <text x="920" y="260" text-anchor="middle" font-size="12.5" fill="#1D2430">supplier_scorecard (monthly)</text>
+    <text x="920" y="294" text-anchor="middle" font-size="12.5" fill="#1D2430">table + column comments</text>
+
+    <rect x="1060" y="100" width="120" height="96" rx="10" fill="none" stroke="#7D8EA3" stroke-width="1.5"/>
+    <text x="1120" y="132" text-anchor="middle" font-size="14" font-weight="700" fill="#1D2430">Power BI</text>
+    <text x="1120" y="154" text-anchor="middle" font-size="12" fill="#5B6574">project 1</text>
+    <rect x="1060" y="230" width="120" height="110" rx="10" fill="none" stroke="#7D8EA3" stroke-width="1.5"/>
+    <text x="1120" y="264" text-anchor="middle" font-size="14" font-weight="700" fill="#1D2430">KPI agent</text>
+    <text x="1120" y="286" text-anchor="middle" font-size="12" fill="#5B6574">project 4</text>
+  </g>
+
+  <!-- arrows -->
+  <g stroke="#7D8EA3" stroke-width="1.5" fill="none">
+    <path d="M240 148H298" marker-end="url(#a)"/><path d="M240 285H298" marker-end="url(#a)"/>
+    <path d="M500 220H558" marker-end="url(#a)"/><path d="M760 220H818" marker-end="url(#a)"/>
+    <path d="M1020 148H1058" marker-end="url(#a)"/><path d="M1020 285H1058" marker-end="url(#a)"/>
+    <path d="M660 340V398" marker-end="url(#a)"/><path d="M920 340V398" marker-end="url(#a)"/>
+  </g>
+
+  <!-- dq + validate -->
+  <rect x="560" y="400" width="200" height="84" rx="10" fill="#ffffff" stroke="#1F4E79" stroke-width="2"/>
+  <text x="660" y="428" text-anchor="middle" font-size="14" font-weight="700" fill="#1F4E79">dq_results (append)</text>
+  <text x="660" y="450" text-anchor="middle" font-size="12.5" fill="#1D2430">13 checks per run, history</text>
+  <text x="660" y="470" text-anchor="middle" font-size="12.5" fill="#1D2430">DQ score 99.62 %</text>
+  <rect x="820" y="400" width="200" height="84" rx="10" fill="#ffffff" stroke="#1F4E79" stroke-width="2"/>
+  <text x="920" y="428" text-anchor="middle" font-size="14" font-weight="700" fill="#1F4E79">04_validate · gate</text>
+  <text x="920" y="450" text-anchor="middle" font-size="12.5" fill="#1D2430">17 tests vs. project 1</text>
+  <text x="920" y="470" text-anchor="middle" font-size="12.5" fill="#1D2430">any FAIL → job turns red</text>
+
+  <!-- bands -->
+  <rect x="30" y="512" width="1150" height="32" rx="8" fill="#F3F6FA" stroke="#D9E1EA"/>
+  <text x="46" y="533" font-size="13" fill="#1D2430"><tspan font-weight="700">Lakeflow Job (daily):</tspan> 01_bronze → 02_silver → 03_gold → 04_validate · serverless compute</text>
+  <rect x="30" y="552" width="1150" height="32" rx="8" fill="#F3F6FA" stroke="#D9E1EA"/>
+  <text x="46" y="573" font-size="13" fill="#1D2430"><tspan font-weight="700">GitHub Actions (every push):</tspan> ruff lint + 16 pytest tests on PySpark 4.0 · notebooks only orchestrate, logic lives in src/</text>
+</svg>

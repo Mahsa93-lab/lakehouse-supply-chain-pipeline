@@ -1,0 +1,32 @@
+# Secrets – never commit
+.env
+*.env
+!.env.example
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+.ruff_cache/
+
+# Data (download it, don't commit it – document the source in the README)
+data/raw/
+*.csv
+*.parquet
+!data/**/*example*
+# small reference file: ECB BRL/EUR rates 2016–2018 (768 lines, public)
+!data/ecb_brl_eur_2016_2018.csv
+chroma_db/
+
+# Power BI temp files
+*.pbix.bak
+~$*
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
