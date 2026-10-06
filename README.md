@@ -41,7 +41,14 @@ Reports are only as good as the pipeline behind them. When data comes from sever
 | Data-quality checks per run | 13 (4,542 findings, DQ score 99.62 %) |
 | Quality gate | 17 / 17 PASS |
 | Unit tests | 16 / 16 PASS |
-| Runtime of the daily job | TODO (serverless, Free Edition) |
+| Runtime of the daily job | 3 min 47 s on serverless (bronze 1:33 · silver 1:00 · gold 0:44 · validate 0:26) |
+
+## Screenshots
+| Daily job: four tasks, all green | Unity Catalog lineage |
+|---|---|
+| ![Job run](images/01_job_run.png) | ![Lineage](images/02_lineage.png) |
+
+Table and column comments in Catalog Explorer: [images/03_table_docs.png](images/03_table_docs.png)
 
 ## How to run
 1. Create a free account: [Databricks Free Edition](https://www.databricks.com/learn/free-edition)
@@ -59,6 +66,7 @@ notebooks/    01_bronze · 02_silver · 03_gold · 04_validate (Databricks sourc
 tests/        pytest: ECB parser, DQ checks, transformation rules
 data/         ecb_brl_eur_2016_2018.csv (767 ECB business days)
 docs/         architecture, expected results
+images/       Databricks screenshots (job run, lineage, catalog)
 .github/      CI workflow
 ```
 

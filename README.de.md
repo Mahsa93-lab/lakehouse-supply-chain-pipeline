@@ -33,6 +33,23 @@ Berichte sind nur so gut wie die Pipeline dahinter. Kommen Daten aus mehreren Qu
 - **Lakeflow Job** mit vier Tasks auf Serverless Compute, täglich geplant
 - **Governance:** Tabellen- und Spaltenkommentare in Unity Catalog, Lineage im Catalog Explorer sichtbar
 
+## Ergebnisse
+| Kennzahl | Wert |
+|---|---|
+| Gelesene Zeilen je Lauf | 446.873 (7 Dateien) + 767 EZB-Tage |
+| Geschriebene Tabellen | 8 Bronze · 7 Silver · 4 Gold · 1 DQ-Historie |
+| Datenqualitätsprüfungen je Lauf | 13 (4.542 Befunde, DQ-Score 99,62 %) |
+| Quality Gate | 17 / 17 PASS |
+| Unit-Tests | 16 / 16 PASS |
+| Laufzeit des täglichen Jobs | 3 min 47 s auf Serverless (Bronze 1:33 · Silver 1:00 · Gold 0:44 · Validate 0:26) |
+
+## Screenshots
+| Täglicher Job: vier Tasks, alle grün | Lineage in Unity Catalog |
+|---|---|
+| ![Job-Lauf](images/01_job_run.png) | ![Lineage](images/02_lineage.png) |
+
+Tabellen- und Spaltenkommentare im Catalog Explorer: [images/03_table_docs.png](images/03_table_docs.png)
+
 ## Ausführen
 1. Kostenloses Konto anlegen: [Databricks Free Edition](https://www.databricks.com/learn/free-edition)
 2. Workspace → **Create → Git folder** → dieses Repository klonen
