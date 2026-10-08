@@ -67,5 +67,17 @@ Bei BMW habe ich Daten aus vier Bereichen – zwei Fachbereiche und zwei liefera
 - Alarm, wenn sich eine DQ-Prüfung gegenüber dem letzten Lauf verschlechtert – der KPI-Agent in Projekt 4 liest `dq_results`
 - Job als Code mit Databricks Asset Bundles ausrollen
 
+## Portfolio
+Vier zusammenhängende Projekte zu vertrauenswürdigen Daten und KI in der Supply Chain – vom Dashboard über die Pipeline bis zum Agenten:
+
+| # | Projekt | Fragestellung | Stack |
+|---|---|---|---|
+| 1 | [Lieferanten- & Lieferperformance](https://github.com/Mahsa93-lab/supplier-delivery-performance-powerbi) | Welche Lieferanten verursachen Verspätungen – und was kosten sie an Reklamationen? | SQL Server · Power BI · DAX |
+| 2 | **Lakehouse-Pipeline Supply Chain** *(dieses Repository)* | Lassen sich dieselben Kennzahlen täglich, automatisch und hinter einem Datenqualitäts-Gate erzeugen? | Databricks · PySpark · Delta Lake |
+| 3 | [Assistent EU AI Act & DSGVO](https://github.com/Mahsa93-lab/eu-ai-act-rag-assistant) | Kann ein KI-Assistent Rechtsfragen mit überprüfbaren Quellen beantworten? | RAG · OpenAI · FastAPI · Docker |
+| 4 | [KI-Agent für KPI-Wochenberichte](https://github.com/Mahsa93-lab/ai-kpi-reporting-agent) | Kann ein KI-Agent die wöchentliche Management-Summary schreiben – ohne eine einzige ungeprüfte Zahl? | n8n · MCP · SPC · Docker |
+
+Die Projekte bauen aufeinander auf: Projekt 2 liefert dieselben Zahlen wie Projekt 1 auf den Cent genau (99.441 Bestellungen, 13.591.643,70 BRL Umsatz); der Agent in Projekt 4 liest die Gold-Tabellen aus Projekt 2 und nutzt die Such-API aus Projekt 3.
+
 ---
 *Autorin: Mahsa Ahmadi · Ausschließlich öffentliche Daten; es wurden keine unternehmensinternen Daten verwendet.*
