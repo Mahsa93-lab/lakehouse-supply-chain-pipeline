@@ -11,7 +11,7 @@ from __future__ import annotations
 
 from collections.abc import Callable
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from pyspark.sql import Column, DataFrame, SparkSession
 from pyspark.sql import functions as F
@@ -115,7 +115,7 @@ RESULT_SCHEMA = (
 
 def to_dataframe(spark: SparkSession, results: list[CheckResult], run_ts: datetime | None = None) -> DataFrame:
     """One row per check, stamped with the run time (UTC) → append to dq_results."""
-    run_ts = run_ts or datetime.now(timezone.utc).replace(microsecond=0, tzinfo=None)
+    run_ts = run_ts or datetime.now(UTC).replace(microsecond=0, tzinfo=None)
     rows = [
         (run_ts, r.check_id, r.table_name, r.check_name, r.dimension, r.failed_rows, r.total_rows, r.passed)
         for r in results
