@@ -68,7 +68,7 @@ Bei BMW habe ich Daten aus vier Bereichen – zwei Fachbereiche und zwei liefera
 - Job als Code mit Databricks Asset Bundles ausrollen
 
 ## Portfolio
-Vier zusammenhängende Projekte zu vertrauenswürdigen Daten und KI in der Supply Chain – vom Dashboard über die Pipeline bis zum Agenten:
+Fünf zusammenhängende Projekte zu vertrauenswürdigen Daten und KI in der Supply Chain – vom Dashboard über die Pipeline und den Agenten bis zur Bestandsentscheidung:
 
 | # | Projekt | Fragestellung | Stack |
 |---|---|---|---|
@@ -76,8 +76,9 @@ Vier zusammenhängende Projekte zu vertrauenswürdigen Daten und KI in der Suppl
 | 2 | **Lakehouse-Pipeline Supply Chain** *(dieses Repository)* | Lassen sich dieselben Kennzahlen täglich, automatisch und hinter einem Datenqualitäts-Gate erzeugen? | Databricks · PySpark · Delta Lake |
 | 3 | [Assistent EU AI Act & DSGVO](https://github.com/Mahsa93-lab/eu-ai-act-rag-assistant) | Kann ein KI-Assistent Rechtsfragen mit überprüfbaren Quellen beantworten? | RAG · OpenAI · FastAPI · Docker |
 | 4 | [KI-Agent für KPI-Wochenberichte](https://github.com/Mahsa93-lab/ai-kpi-reporting-agent) | Kann ein KI-Agent die wöchentliche Management-Summary schreiben – ohne eine einzige ungeprüfte Zahl? | n8n · MCP · SPC · Docker |
+| 5 | [Bestandsoptimierung: Servicegrad vs. Kapital](https://github.com/Mahsa93-lab/bestandsoptimierung-servicegrad) | Was kostet jedes Prozent Lieferfähigkeit an Bestand – und wo verhindert dasselbe Kapital die meisten Defekte? | Python · pandas · SciPy · Simulation |
 
-Die Projekte bauen aufeinander auf: Projekt 2 liefert dieselben Zahlen wie Projekt 1 auf den Cent genau (99.441 Bestellungen, 13.591.643,70 BRL Umsatz); der Agent in Projekt 4 liest die Gold-Tabellen aus Projekt 2 und nutzt die Such-API aus Projekt 3.
+Die Projekte bauen aufeinander auf: Projekt 2 liefert dieselben Zahlen wie Projekt 1 auf den Cent genau (99.441 Bestellungen, 13.591.643,70 BRL Umsatz); der Agent in Projekt 4 liest die Gold-Tabellen aus Projekt 2 und nutzt die Such-API aus Projekt 3; Projekt 5 macht aus den Kennzahlen eine Bestandsentscheidung – wie viel Bestand, wo und mit welchem Servicegrad (synthetische Daten).
 
 ---
 *Autorin: Mahsa Ahmadi · Ausschließlich öffentliche Daten; es wurden keine unternehmensinternen Daten verwendet.*

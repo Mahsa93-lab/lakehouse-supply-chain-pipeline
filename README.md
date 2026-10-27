@@ -76,7 +76,7 @@ images/       Databricks screenshots (job run, lineage, catalog)
 - Deploy the job as code with Databricks Asset Bundles
 
 ## Portfolio
-Four connected projects on trustworthy data and AI in supply chain – from the dashboard to the pipeline to the agent:
+Five connected projects on trustworthy data and AI in supply chain – from the dashboard to the pipeline and the agent to the inventory decision:
 
 | # | Project | Question | Stack |
 |---|---|---|---|
@@ -84,8 +84,9 @@ Four connected projects on trustworthy data and AI in supply chain – from the 
 | 2 | **Lakehouse Supply-Chain Pipeline** *(this repository)* | Can the same KPIs be produced daily, automatically and behind a data-quality gate? | Databricks · PySpark · Delta Lake |
 | 3 | [EU AI Act & GDPR Assistant](https://github.com/Mahsa93-lab/eu-ai-act-rag-assistant) | Can an AI assistant answer legal questions with sources you can check? | RAG · OpenAI · FastAPI · Docker |
 | 4 | [AI KPI Reporting Agent](https://github.com/Mahsa93-lab/ai-kpi-reporting-agent) | Can an AI agent write the weekly management summary without a single unchecked number? | n8n · MCP · SPC · Docker |
+| 5 | [Inventory Optimisation: Service Level vs. Capital](https://github.com/Mahsa93-lab/bestandsoptimierung-servicegrad) | How much stock does each extra percent of service level cost – and where does the same capital prevent the most stock-outs? | Python · pandas · SciPy · Simulation |
 
-The projects build on each other: project 2 reproduces the numbers of project 1 to the cent (99,441 orders, BRL 13,591,643.70 revenue); the agent in project 4 reads the gold tables of project 2 and uses the search API of project 3.
+The projects build on each other: project 2 reproduces the numbers of project 1 to the cent (99,441 orders, BRL 13,591,643.70 revenue); the agent in project 4 reads the gold tables of project 2 and uses the search API of project 3; project 5 turns the KPIs into an inventory decision – how much stock, where and at which service level (synthetic data).
 
 ---
 *Author: Mahsa Ahmadi · Public data only; no company-internal data was used.*
